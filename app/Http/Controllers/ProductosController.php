@@ -11,8 +11,8 @@ class ProductosController extends Controller
     public function index()
     {
         //Página de Inicio
-        $datos = "Prueba";
-        return view('welcome');
+        $datos = Productos::all();
+        return view('inicio', compact('datos'));
     }
 
     public function create()
