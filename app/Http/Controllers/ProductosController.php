@@ -10,36 +10,40 @@ class ProductosController extends Controller
 
     public function index()
     {
-        //
+        //Página de Inicio
+        $datos = "Prueba";
+        return view('welcome');
     }
 
     public function create()
     {
-        //
+        //Formulario donde se agregan datos
+        return "Aquí se crea";
     }
 
     public function store(Request $request)
     {
-        //
+        //Guarda datos en la BD
     }
 
     public function show(Productos $productos)
     {
-        //
+        //Obtiene registro de la tabla
     }
 
     public function edit(Productos $productos)
     {
-        //
+        //Obtiene datos a editar y coloca en formulario
+        return "Aquí se edita";
     }
 
     public function update(Request $request, Productos $productos)
     {
-        //
+        //Actualiza datos en BD
     }
 
     public function destroy(Productos $productos)
     {
-        //
+        //Elimina un registro
     }
 }
