@@ -18,7 +18,7 @@ class ProductosController extends Controller
     public function create()
     {
         //Formulario donde se agregan datos
-        return "Aquí se crea";
+        return view('agregar');
     }
 
     public function store(Request $request)

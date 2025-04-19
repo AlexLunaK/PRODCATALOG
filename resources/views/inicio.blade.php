@@ -6,7 +6,7 @@
     <div class="card">
         <h5 class="card-header">Productos</h5>
         <div class="card-body">
-        <h5 class="card-title">Listado de productos en el sistema.</h5>
+        <h5 class="card-title text-center">Listado de productos en el sistema.</h5>
         <p>
             <a href="{{route('productos.create')}}" class="btn btn-primary">Agregar producto</a>
         </p>
@@ -40,9 +40,5 @@
             </div>
         </p>
         </div>
-    </div>
-
-    <div class="row">
-        <a href="{{route('productos.edit')}}">Editar producto</a>
     </div>
 @endsection
