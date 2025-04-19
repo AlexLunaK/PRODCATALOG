@@ -1,0 +1,55 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  .custom-navbar {
+    background-color: #121920;
+  }
+
+  .custom-navbar .navbar-brand {
+    font-size: 2rem;
+    font-style: italic;
+  }
+  
+  main {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+    font-style: italic; /* Cursiva */
+  }
+  
+  .custom-footer p {
+    margin: 0;
+  }
+  
+    body {
+    padding-bottom: 60px;
+  }
+  
+  @media (max-width: 768px) {
+    .custom-navbar .navbar-brand {
+      font-size: 1.2rem;
+    }
+  }
+  
