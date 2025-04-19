@@ -11,7 +11,7 @@
     
     <!-- Link to custom CSS -->
     @vite('resources/css/app.css')
-
+    
     <title>@yield('tituloPagina')</title>
   </head>
   <body>
