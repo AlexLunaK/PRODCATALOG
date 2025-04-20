@@ -27,8 +27,12 @@
                 </table>
                 <hr>
                 <form action="">
-                    <a href="{{route('productos.index')}}" class="btn btn-info">Regresar</a>
-                    <button class="btn btn-danger">Eliminar</button>
+                    <a href="{{route('productos.index')}}" class="btn btn-info">
+                        <span class="fas fa-undo-alt"></span> Regresar
+                    </a>
+                    <button class="btn btn-danger">
+                        <span class="fas fa-trash-alt"></span> Eliminar
+                    </button>
                 </form>
             </div>
         </p>

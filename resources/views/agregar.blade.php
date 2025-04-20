@@ -8,7 +8,8 @@
     <h5 class="card-header">Agregar nuevo producto</h5>
     <div class="card-body">
         <p class="card-text">
-            <form action="">
+            <form action="{{route('productos.store')}}" method="POST">
+                @csrf
                 <label for="">Producto</label>
                 <input type="text" name="producto" class="form-control" required>
                 <label for="">Descripción</label>
@@ -22,8 +23,12 @@
                 <label for="">Proveedor</label>
                 <input type="text" name="proveedor" class="form-control" required>
                 <br>
-                <a href="{{route('productos.index')}}" class="btn btn-info">Regresar</a>
-                <button class="btn btn-primary">Agregar</button>
+                <a href="{{route('productos.index')}}" class="btn btn-info">
+                    <span class="fas fa-undo-alt"></span> Regresar
+                </a>
+                <button class="btn btn-primary">
+                    <span class="fas fa-plus-square"></span> Agregar
+                </button>
             </form>
         </p>
     </div>

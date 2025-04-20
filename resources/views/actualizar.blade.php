@@ -22,8 +22,12 @@
                 <label for="">Proveedor</label>
                 <input type="text" name="proveedor" class="form-control" required>
                 <br>
-                <a href="{{route('productos.index')}}" class="btn btn-info">Regresar</a>
-                <button class="btn btn-warning">Agregar</button>
+                <a href="{{route('productos.index')}}" class="btn btn-info">
+                    <span class="fas fa-undo-alt"></span> Regresar
+                </a>
+                <button class="btn btn-warning">
+                    <span class="fas fa-edit"></span> Agregar
+                </button>
             </form>
         </p>
     </div>
