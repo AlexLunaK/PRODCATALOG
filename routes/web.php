@@ -8,4 +8,5 @@ Route::get('/create',[ProductosController::class,'create'])->name('productos.cre
 Route::post('/store',[ProductosController::class,'store'])->name('productos.store');
 Route::get('/edit/{id}',[ProductosController::class,'edit'])->name('productos.edit');
 Route::put('/update/{id}',[ProductosController::class,'update'])->name('productos.update');
-Route::get('/show',[ProductosController::class,'show'])->name('productos.show');
+Route::get('/show/{id}',[ProductosController::class,'show'])->name('productos.show');
+Route::delete('/destroy/{id}',[ProductosController::class,'destroy'])->name('productos.destroy');

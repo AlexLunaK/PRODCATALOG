@@ -52,7 +52,7 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="">
+                                    <form action="{{route('productos.show', $item->id)}}" method="GET">
                                         <button class="btn btn-danger btn-sm">
                                             <span class="fas fa-trash-alt"></span>
                                         </button>

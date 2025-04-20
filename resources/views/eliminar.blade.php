@@ -10,7 +10,7 @@
         <p class="card-text">
             <div class="alert alert-danger" role="alert">
                 ¿Estás seguro que deseas eliminar este registro?
-                <table class="table table-sm table-hover">
+                <table class="table table-sm table-hover table-bordered" style="background-color: white">
                     <th>
                         <th>Producto</th>
                         <th>Descripción</th>
@@ -21,12 +21,19 @@
                     </th>
                     <tbody>
                         <tr>
-                            <td></td>
+                            <td>{{$productos->producto}}</td>
+                            <td>{{$productos->descripcion}}</td>
+                            <td>{{$productos->precio}}</td>
+                            <td>{{$productos->categoria}}</td>
+                            <td>{{$productos->stock}}</td>
+                            <td>{{$productos->proveedor}}</td>
                         </tr>
                     </tbody>
                 </table>
                 <hr>
-                <form action="">
+                <form action="{{route('productos.destroy',$productos->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
                     <a href="{{route('productos.index')}}" class="btn btn-info">
                         <span class="fas fa-undo-alt"></span> Regresar
                     </a>

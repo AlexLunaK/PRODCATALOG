@@ -36,10 +36,11 @@ class ProductosController extends Controller
         return redirect()->route('productos.index')->with('success','¡Agregado con éxito!');
     }
 
-    public function show(Productos $productos)
+    public function show($id)
     {
         //Obtiene registro de la tabla
-        return view('eliminar');
+        $productos = Productos::find($id);
+        return view('eliminar', compact('productos'));
     }
 
     public function edit($id)
@@ -64,8 +65,11 @@ class ProductosController extends Controller
         return redirect()->route('productos.index')->with('success','¡Actualizado con éxito!');
     }
 
-    public function destroy(Productos $productos)
+    public function destroy($id)
     {
         //Elimina un registro
+        $productos = Productos::find($id);
+        $productos->delete();
+        return redirect()->route('productos.index')->with('success','¡Eliminado con éxito!');
     }
 }
