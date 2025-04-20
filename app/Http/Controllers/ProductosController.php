@@ -33,7 +33,7 @@ class ProductosController extends Controller
         $productos->proveedor = $request->post('proveedor');
         $productos->save();
 
-        return redirect()->route('productos.index')->with('success','¡Agregado con éxito!');;
+        return redirect()->route('productos.index')->with('success','¡Agregado con éxito!');
     }
 
     public function show(Productos $productos)
@@ -42,15 +42,26 @@ class ProductosController extends Controller
         return view('eliminar');
     }
 
-    public function edit(Productos $productos)
+    public function edit($id)
     {
         //Obtiene datos a editar y coloca en formulario
-        return view('actualizar');
+        $productos = Productos::find($id);
+        return view('actualizar', compact('productos'));
     }
 
-    public function update(Request $request, Productos $productos)
+    public function update(Request $request, $id)
     {
         //Actualiza datos en BD
+        $productos = Productos::find($id);
+        $productos->producto = $request->post('producto');
+        $productos->descripcion = $request->post('descripcion');
+        $productos->precio = $request->post('precio');
+        $productos->categoria = $request->post('categoria');
+        $productos->stock = $request->post('stock');
+        $productos->proveedor = $request->post('proveedor');
+        $productos->save();
+
+        return redirect()->route('productos.index')->with('success','¡Actualizado con éxito!');
     }
 
     public function destroy(Productos $productos)

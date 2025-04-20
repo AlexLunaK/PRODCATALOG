@@ -45,7 +45,7 @@
                                 <td>{{$item->stock}}</td>
                                 <td>{{$item->proveedor}}</td>
                                 <td>
-                                    <form action="">
+                                    <form action="{{route('productos.edit', $item->id)}}" method="GET">
                                         <button class="btn btn-warning btn-sm">
                                             <span class="fas fa-edit"></span>
                                         </button>
