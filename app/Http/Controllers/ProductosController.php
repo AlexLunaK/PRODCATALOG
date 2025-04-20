@@ -11,7 +11,7 @@ class ProductosController extends Controller
     public function index()
     {
         //Página de Inicio
-        $datos = Productos::all();
+        $datos = Productos::orderBy('producto','desc')->paginate(3);
         return view('inicio', compact('datos'));
     }
 
