@@ -29,12 +29,13 @@ class ProductosController extends Controller
     public function show(Productos $productos)
     {
         //Obtiene registro de la tabla
+        return view('eliminar');
     }
 
     public function edit(Productos $productos)
     {
         //Obtiene datos a editar y coloca en formulario
-        return "Aquí se edita";
+        return view('actualizar');
     }
 
     public function update(Request $request, Productos $productos)
