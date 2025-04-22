@@ -4,29 +4,39 @@
 
 @section('contenido')
 
-<div class="card">
+@section('css')
+    @vite(['resources/css/agregar.css'])
+@endsection
+
+<div class="card agregar-producto-card">
     <h5 class="card-header">Agregar nuevo producto</h5>
     <div class="card-body">
         <p class="card-text">
             <form action="{{route('productos.store')}}" method="POST">
                 @csrf
-                <label for="">Producto</label>
-                <input type="text" name="producto" class="form-control" required>
-                <label for="">Descripción</label>
-                <input type="text" name="descripcion" class="form-control" required>
-                <label for="">Precio</label>
-                <input type="number" name="precio" class="form-control" required>
-                <label for="">Categoría</label>
-                <input type="text" name="categoria" class="form-control" required>
-                <label for="">Stock</label>
-                <input type="number" name="stock" class="form-control" required>
-                <label for="">Proveedor</label>
-                <input type="text" name="proveedor" class="form-control" required>
+                <label for="producto">Producto</label>
+                <input type="text" name="producto" id="producto" class="form-control input-personalizado" required>
+
+                <label for="descripcion">Descripción</label>
+                <input type="text" name="descripcion" id="descripcion" class="form-control input-personalizado" required>
+
+                <label for="precio">Precio</label>
+                <input type="number" name="precio" id="precio" class="form-control input-personalizado" required>
+
+                <label for="categoria">Categoría</label>
+                <input type="text" name="categoria" id="categoria" class="form-control input-personalizado" required>
+
+                <label for="stock">Stock</label>
+                <input type="number" name="stock" id="stock" class="form-control input-personalizado" required>
+
+                <label for="proveedor">Proveedor</label>
+                <input type="text" name="proveedor" id="proveedor" class="form-control input-personalizado" required>
+
                 <br>
-                <a href="{{route('productos.index')}}" class="btn btn-info">
+                <a href="{{route('productos.index')}}" class="btn btn-info btn-regresar">
                     <span class="fas fa-undo-alt"></span> Regresar
                 </a>
-                <button class="btn btn-primary">
+                <button class="btn btn-primary btn-agregar">
                     <span class="fas fa-plus-square"></span> Agregar
                 </button>
             </form>
@@ -34,7 +44,6 @@
     </div>
 </div>
 
-
-
-    
 @endsection
+
+

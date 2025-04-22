@@ -2,6 +2,10 @@
 
 @section('tituloPagina', 'Agregar registro')
 
+@section('css')
+    @vite(['resources/css/actualizar.css'])
+@endsection
+
 @section('contenido')
 
 <div class="card">
@@ -11,31 +15,35 @@
             <form action="{{route('productos.update', $productos->id)}}" method="POST">
                 @csrf
                 @method("PUT")
-                <label for="">Producto</label>
-                <input type="text" name="producto" class="form-control" required value="{{$productos->producto}}">
-                <label for="">Descripción</label>
-                <input type="text" name="descripcion" class="form-control" required value="{{$productos->descripcion}}">
-                <label for="">Precio</label>
-                <input type="number" name="precio" class="form-control" required value="{{$productos->precio}}">
-                <label for="">Categoría</label>
-                <input type="text" name="categoria" class="form-control" required value="{{$productos->categoria}}">
-                <label for="">Stock</label>
-                <input type="number" name="stock" class="form-control" required value="{{$productos->stock}}">
-                <label for="">Proveedor</label>
-                <input type="text" name="proveedor" class="form-control" required value="{{$productos->proveedor}}">
+
+                <label for="producto">Producto</label>
+                <input type="text" name="producto" id="producto" class="form-control input-actualizar" required value="{{$productos->producto}}">
+
+                <label for="descripcion">Descripción</label>
+                <input type="text" name="descripcion" id="descripcion" class="form-control input-actualizar" required value="{{$productos->descripcion}}">
+
+                <label for="precio">Precio</label>
+                <input type="number" name="precio" id="precio" class="form-control input-actualizar" required value="{{$productos->precio}}">
+
+                <label for="categoria">Categoría</label>
+                <input type="text" name="categoria" id="categoria" class="form-control input-actualizar" required value="{{$productos->categoria}}">
+
+                <label for="stock">Stock</label>
+                <input type="number" name="stock" id="stock" class="form-control input-actualizar" required value="{{$productos->stock}}">
+
+                <label for="proveedor">Proveedor</label>
+                <input type="text" name="proveedor" id="proveedor" class="form-control input-actualizar" required value="{{$productos->proveedor}}">
+
                 <br>
-                <a href="{{route('productos.index')}}" class="btn btn-info">
+                <a href="{{route('productos.index')}}" class="btn btn-info btn-regresar">
                     <span class="fas fa-undo-alt"></span> Regresar
                 </a>
-                <button class="btn btn-warning">
-                    <span class="fas fa-edit"></span> Agregar
+                <button class="btn btn-warning btn-actualizar">
+                    <span class="fas fa-edit"></span> Actualizar
                 </button>
             </form>
         </p>
     </div>
 </div>
 
-
-
-    
 @endsection

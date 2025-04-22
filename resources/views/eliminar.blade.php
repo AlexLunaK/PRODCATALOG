@@ -2,6 +2,10 @@
 
 @section('tituloPagina', 'Agregar registro')
 
+@section('css')
+    @vite(['resources/css/eliminar.css'])
+@endsection
+
 @section('contenido')
 
 <div class="card">
@@ -10,15 +14,15 @@
         <p class="card-text">
             <div class="alert alert-danger" role="alert">
                 ¿Estás seguro que deseas eliminar este registro?
-                <table class="table table-sm table-hover table-bordered" style="background-color: white">
-                    <th>
+                <table class="tabla-eliminar">
+                    <thead>
                         <th>Producto</th>
                         <th>Descripción</th>
                         <th>Precio</th>
                         <th>Categoría</th>
                         <th>Stock</th>
                         <th>Proveedor</th>
-                    </th>
+                    </thead>
                     <tbody>
                         <tr>
                             <td>{{$productos->producto}}</td>
@@ -34,10 +38,10 @@
                 <form action="{{route('productos.destroy',$productos->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <a href="{{route('productos.index')}}" class="btn btn-info">
+                    <a href="{{route('productos.index')}}" class="btn btn-info btn-regresar">
                         <span class="fas fa-undo-alt"></span> Regresar
                     </a>
-                    <button class="btn btn-danger">
+                    <button class="btn btn-danger btn-eliminar">
                         <span class="fas fa-trash-alt"></span> Eliminar
                     </button>
                 </form>
@@ -46,7 +50,4 @@
     </div>
 </div>
 
-
-
-    
 @endsection

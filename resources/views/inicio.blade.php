@@ -2,9 +2,13 @@
 
 @section('tituloPagina','Productos')
 
+@section('css')
+    @vite(['resources/css/inicio.css'])
+@endsection
+
 @section('contenido')
     <div class="card">
-        <h5 class="card-header">Productos</h5>
+        <h5 class="card-header">Listado de Productos</h5>
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-12">
@@ -15,17 +19,16 @@
                     @endif
                 </div>
             </div>
-            <h5 class="card-title text-center">Listado de productos en el sistema.</h5>
             <p>
                 <a href="{{route('productos.create')}}" class="btn btn-primary">
-                    <span class="fas fa-plus-square"></span>  Agregar producto
+                    <span class="fas fa-plus-square"></span>     Agregar producto
                 </a>
             </p>
             <hr>
             <p class="card-text">
                 <div class="table">
                     <table class="table table-sm table-bordered">
-                        <thead>
+                        <thead class="text-center align-middle">
                             <th>Producto</th>
                             <th>Descripción</th>
                             <th>Precio</th>
@@ -37,21 +40,21 @@
                         </thead>
                         <tbody>
                             @foreach ($datos as $item)
-                                <tr>
+                                <tr class="text-center align-middle">
                                     <td>{{$item->producto}}</td>
                                     <td>{{$item->descripcion}}</td>
                                     <td>{{$item->precio}}</td>
                                     <td>{{$item->categoria}}</td>
                                     <td>{{$item->stock}}</td>
                                     <td>{{$item->proveedor}}</td>
-                                    <td>
+                                    <td class="btn-cell">
                                         <form action="{{route('productos.edit', $item->id)}}" method="GET">
                                             <button class="btn btn-warning btn-sm">
                                                 <span class="fas fa-edit"></span>
                                             </button>
                                         </form>
                                     </td>
-                                    <td>
+                                    <td class="btn-cell">
                                         <form action="{{route('productos.show', $item->id)}}" method="GET">
                                             <button class="btn btn-danger btn-sm">
                                                 <span class="fas fa-trash-alt"></span>
@@ -65,7 +68,7 @@
                     <hr>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 d-flex justify-content-center">
                         {{$datos->links()}}
                     </div>
                 </div>
