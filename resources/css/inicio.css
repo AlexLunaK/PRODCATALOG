@@ -87,6 +87,20 @@ th, td {
     color: black;
 }
 
+.btn-info {
+    background-color: #35addc;
+    border-color: #2e9ecb;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-info:hover{
+    background-color: #62c7ef;
+    border-color: #2e9ecb;
+    color: black;
+}
+
 .btn-sm {
     font-size: 0.875rem;
     padding: 0.25rem 0.5rem;
@@ -101,7 +115,8 @@ th, td {
 
 .btn-primary:hover .fas,
 .btn-warning:hover .fas,
-.btn-danger:hover .fas {
+.btn-danger:hover .fas,
+.btn-info:hover .fas {
     animation: 
         icon-lively 1.0s ease-out 0s 1,
         icon-shake 2.0s ease-in-out 0.9s infinite;
@@ -143,6 +158,63 @@ th, td {
     background-color: #250b7b;
     border-color: #2d2586;
     color: white;
+}
+
+.modal-content {
+    border-radius: 20px;
+    background: #fefefe;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border: none;
+}
+
+.modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.modal-title {
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #050505;
+    text-align: center;
+    width: 100%;
+}
+
+.modal-body {
+    padding-top: 0;
+}
+
+.modal-label {
+    color: #151616;
+}
+
+.modal-data {
+    color: #232f3b;
+    margin-left: 5px;
+}
+
+.btn-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.modal.fade .modal-dialog {
+    transform: scale(0.95);
+    transition: transform 0.3s ease-out;
+}
+
+.modal.fade.show .modal-dialog {
+    transform: scale(1);
 }
 
 /* Animación para hacer el ícono más grande y moverlo ligeramente */

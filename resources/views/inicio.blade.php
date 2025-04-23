@@ -3,7 +3,7 @@
 @section('tituloPagina','Productos')
 
 @section('css')
-    @vite(['resources/css/inicio.css'])
+    @vite(['resources/css/inicio.css','resources/js/inicio.js'])
 @endsection
 
 @section('contenido')
@@ -37,6 +37,7 @@
                             <th>Proveedor</th>
                             <th>Editar</th>
                             <th>Eliminar</th>
+                            <th>Detalles</th>
                         </thead>
                         <tbody>
                             @foreach ($datos as $item)
@@ -61,6 +62,21 @@
                                             </button>
                                         </form>
                                     </td>
+                                    <td class="btn-cell">
+                                        <button 
+                                            class="btn btn-info btn-sm btn-detalles" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#modalDetalles"
+                                            data-producto="{{$item->producto}}"
+                                            data-descripcion="{{$item->descripcion}}"
+                                            data-precio="{{$item->precio}}"
+                                            data-categoria="{{$item->categoria}}"
+                                            data-stock="{{$item->stock}}"
+                                            data-proveedor="{{$item->proveedor}}">
+                                            <span class="fas fa-eye"></span>
+                                        </button>
+                                    </td>
+                                    
                                 </tr>
                             @endforeach
                         </tbody>
@@ -75,4 +91,30 @@
             </p>
         </div>
     </div>
+
+    <div class="modal fade" id="modalDetalles" tabindex="-1" aria-labelledby="modalDetallesLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalDetallesLabel">Detalles del Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><span class="modal-label"><strong>Producto:</strong></span> <span id="detalleProducto" class="modal-data"></span></p>
+                            <p><span class="modal-label"><strong>Precio:</strong></span> $<span id="detallePrecio" class="modal-data"></span></p>
+                            <p><span class="modal-label"><strong>Stock:</strong></span> <span id="detalleStock" class="modal-data"></span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><span class="modal-label"><strong>Descripción:</strong></span> <span id="detalleDescripcion" class="modal-data"></span></p>
+                            <p><span class="modal-label"><strong>Categoría:</strong></span> <span id="detalleCategoria" class="modal-data"></span></p>
+                            <p><span class="modal-label"><strong>Proveedor:</strong></span> <span id="detalleProveedor" class="modal-data"></span></p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+  
 @endsection

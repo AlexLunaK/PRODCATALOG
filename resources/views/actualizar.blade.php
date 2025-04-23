@@ -26,8 +26,15 @@
                 <input type="number" name="precio" id="precio" class="form-control input-actualizar" required value="{{$productos->precio}}">
 
                 <label for="categoria">Categoría</label>
-                <input type="text" name="categoria" id="categoria" class="form-control input-actualizar" required value="{{$productos->categoria}}">
-
+                <select name="categoria" id="categoria" class="form-control input-actualizar" required value="{{$productos->categoria}}">
+                    <option value="">{{$productos->categoria}}</option>
+                    <option value="Tecnología">Tecnología</option>
+                    <option value="Consolas">Consolas</option>
+                    <option value="Accesorios">Accesorios</option>
+                    <option value="Decoración">Decoración</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                
                 <label for="stock">Stock</label>
                 <input type="number" name="stock" id="stock" class="form-control input-actualizar" required value="{{$productos->stock}}">
 
