@@ -11,8 +11,8 @@
 
 .table {
     width: 100%;
-    border-collapse: collapse; /* Cambia a separate para permitir bordes redondeados */
-    border-spacing: 0; /* Elimina espacios entre celdas */
+    border-collapse: collapse;
+    border-spacing: 0;
     border-radius: 15px;
 }
 
@@ -27,6 +27,19 @@
 th, td {
     text-align: center;
     vertical-align: middle;
+}
+
+.descripcion-corta {
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.descripcion-larga {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: justify;
 }
 
 .btn {
@@ -128,7 +141,9 @@ th, td {
 .btn-primary:hover .fas,
 .btn-warning:hover .fas,
 .btn-danger:hover .fas,
-.btn-info:hover .fas {
+.btn-info:hover .fas,
+.btn-secondary:hover .fas,
+.btn-outline-secondary:hover .fas {
     animation: 
         icon-lively 1.0s ease-out 0s 1,
         icon-shake 2.0s ease-in-out 0.9s infinite;

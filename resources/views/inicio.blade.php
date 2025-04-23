@@ -19,15 +19,15 @@
                     @endif
                 </div>
             </div>
-            <p>
-                <a href="{{route('productos.create')}}" class="btn btn-primary">
-                    <span class="fas fa-plus-square"></span>     Agregar producto
-                </a>
-            </p>
             <hr>
             <p class="card-text">
                 <form method="GET" action="{{ route('productos.index') }}" class="row mb-3">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
+                        <a href="{{route('productos.create')}}" class="btn btn-primary">
+                            <span class="fas fa-plus-square"></span>     Agregar producto
+                        </a>
+                    </div>
+                    <div class="col-md-3">
                         <select name="categoria" class="form-select">
                             <option value="">Todas las Categorías</option>
                             @foreach($categorias as $cat)
@@ -35,7 +35,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <select name="proveedor" class="form-select">
                             <option value="">Todos los Proveedores</option>
                             @foreach($proveedores as $prov)
@@ -43,12 +43,20 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-secondary">Filtrar</button>
-                        <a href="{{ route('productos.index') }}" class="btn btn-outline-secondary">Limpiar</a>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-secondary"><span class="fas fa-filter"></span> Filtrar</button>
+                        <a href="{{ route('productos.index') }}" class="btn btn-outline-secondary"><span class="fas fa-brush"></span> Limpiar</a>
                     </div>
+                    <div class="col-md-2">
+                        <select name="cantidad" class="form-select" onchange="this.form.submit()">
+                            <option value="3" {{ request('cantidad') == 3 ? 'selected' : '' }}>3 registros</option>
+                            <option value="5" {{ request('cantidad') == 5 ? 'selected' : '' }}>5 registros</option>
+                            <option value="10" {{ request('cantidad') == 10 ? 'selected' : '' }}>10 registros</option>
+                        </select>
+                    </div>
+                    
                 </form>
-                
+                <hr>
                 <div class="table">
                     <table class="table table-sm table-bordered">
                         <thead class="text-center align-middle">
@@ -66,7 +74,7 @@
                             @foreach ($datos as $item)
                                 <tr class="text-center align-middle">
                                     <td>{{$item->producto}}</td>
-                                    <td>{{$item->descripcion}}</td>
+                                    <td class="descripcion-corta">{{$item->descripcion}}</td>
                                     <td>{{$item->precio}}</td>
                                     <td>{{$item->categoria}}</td>
                                     <td>{{$item->stock}}</td>
@@ -124,15 +132,20 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <p><span class="modal-label"><strong>Producto:</strong></span> <span id="detalleProducto" class="modal-data"></span></p>
                             <p><span class="modal-label"><strong>Precio:</strong></span> $<span id="detallePrecio" class="modal-data"></span></p>
+                        </div>
+                        <div class="col-md-4">
+                            <p><span class="modal-label"><strong>Categoría:</strong></span> <span id="detalleCategoria" class="modal-data"></span></p>
                             <p><span class="modal-label"><strong>Stock:</strong></span> <span id="detalleStock" class="modal-data"></span></p>
                         </div>
-                        <div class="col-md-6">
-                            <p><span class="modal-label"><strong>Descripción:</strong></span> <span id="detalleDescripcion" class="modal-data"></span></p>
-                            <p><span class="modal-label"><strong>Categoría:</strong></span> <span id="detalleCategoria" class="modal-data"></span></p>
+                        <div class="col-md-4">
                             <p><span class="modal-label"><strong>Proveedor:</strong></span> <span id="detalleProveedor" class="modal-data"></span></p>
+                        </div>
+                        <div class="col-md-12">
+                            <p><span class="modal-label"><strong>Descripción:</strong></span></p>
+                            <p id="detalleDescripcion" class="modal-data descripcion-larga"></p>
                         </div>
                     </div>
                 </div> 

@@ -26,7 +26,7 @@
                 <input type="number" name="precio" id="precio" class="form-control input-actualizar" required value="{{$productos->precio}}">
 
                 <label for="categoria">Categoría</label>
-                <select name="categoria" id="categoria" class="form-control input-actualizar" required value="{{$productos->categoria}}">
+                <select name="categoria" id="categoria" class="form-control input-actualizar">
                     <option value="">{{$productos->categoria}}</option>
                     <option value="Tecnología">Tecnología</option>
                     <option value="Consolas">Consolas</option>

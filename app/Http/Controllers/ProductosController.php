@@ -9,27 +9,27 @@ class ProductosController extends Controller
 {
 
     public function index(Request $request)
-{
-    $query = Productos::query();
-
-    if ($request->filled('categoria')) {
-        $query->where('categoria', $request->categoria);
+    {
+        $query = Productos::query();
+    
+        if ($request->filled('categoria')) {
+            $query->where('categoria', $request->categoria);
+        }
+    
+        if ($request->filled('proveedor')) {
+            $query->where('proveedor', $request->proveedor);
+        }
+    
+        $cantidad = $request->input('cantidad', 3);
+    
+        $datos = $query->orderBy('producto', 'asc')->paginate($cantidad)->appends($request->query());
+    
+        $categorias = Productos::select('categoria')->distinct()->pluck('categoria');
+        $proveedores = Productos::select('proveedor')->distinct()->pluck('proveedor');
+    
+        return view('inicio', compact('datos', 'categorias', 'proveedores'));
     }
-
-    if ($request->filled('proveedor')) {
-        $query->where('proveedor', $request->proveedor);
-    }
-
-    $datos = $query->orderBy('producto', 'desc')->paginate(3)->appends($request->query());
-
-    // Extraer categorías y proveedores únicos para los select
-    $categorias = Productos::select('categoria')->distinct()->pluck('categoria');
-    $proveedores = Productos::select('proveedor')->distinct()->pluck('proveedor');
-
-    return view('inicio', compact('datos', 'categorias', 'proveedores'));
-}
-
-
+    
     public function create()
     {
         //Formulario donde se agregan datos
@@ -72,9 +72,13 @@ class ProductosController extends Controller
         $productos->producto = $request->post('producto');
         $productos->descripcion = $request->post('descripcion');
         $productos->precio = $request->post('precio');
-        $productos->categoria = $request->post('categoria');
         $productos->stock = $request->post('stock');
         $productos->proveedor = $request->post('proveedor');
+
+        if ($request->filled('categoria')) {
+            $productos->categoria = $request->categoria;
+        }
+
         $productos->save();
 
         return redirect()->route('productos.index')->with('success','¡Actualizado con éxito!');
