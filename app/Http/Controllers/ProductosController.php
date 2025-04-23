@@ -8,12 +8,27 @@ use Illuminate\Http\Request;
 class ProductosController extends Controller
 {
 
-    public function index()
-    {
-        //Página de Inicio
-        $datos = Productos::orderBy('producto','desc')->paginate(3);
-        return view('inicio', compact('datos'));
+    public function index(Request $request)
+{
+    $query = Productos::query();
+
+    if ($request->filled('categoria')) {
+        $query->where('categoria', $request->categoria);
     }
+
+    if ($request->filled('proveedor')) {
+        $query->where('proveedor', $request->proveedor);
+    }
+
+    $datos = $query->orderBy('producto', 'desc')->paginate(3)->appends($request->query());
+
+    // Extraer categorías y proveedores únicos para los select
+    $categorias = Productos::select('categoria')->distinct()->pluck('categoria');
+    $proveedores = Productos::select('proveedor')->distinct()->pluck('proveedor');
+
+    return view('inicio', compact('datos', 'categorias', 'proveedores'));
+}
+
 
     public function create()
     {

@@ -26,6 +26,29 @@
             </p>
             <hr>
             <p class="card-text">
+                <form method="GET" action="{{ route('productos.index') }}" class="row mb-3">
+                    <div class="col-md-4">
+                        <select name="categoria" class="form-select">
+                            <option value="">Todas las Categorías</option>
+                            @foreach($categorias as $cat)
+                                <option value="{{ $cat }}" {{ request('categoria') == $cat ? 'selected' : '' }}>{{ $cat }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select name="proveedor" class="form-select">
+                            <option value="">Todos los Proveedores</option>
+                            @foreach($proveedores as $prov)
+                                <option value="{{ $prov }}" {{ request('proveedor') == $prov ? 'selected' : '' }}>{{ $prov }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-secondary">Filtrar</button>
+                        <a href="{{ route('productos.index') }}" class="btn btn-outline-secondary">Limpiar</a>
+                    </div>
+                </form>
+                
                 <div class="table">
                     <table class="table table-sm table-bordered">
                         <thead class="text-center align-middle">
